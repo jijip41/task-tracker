@@ -1,9 +1,18 @@
+import React from 'react';
 import './App.css';
+import Navbar from './Navbar';
+import Tasks from './Tasks';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello World</h1>
+    <div>
+      <nav>
+        <Navbar />
+      </nav>
+      <div>
+        <Tasks />
+      </div>
+      <button>Reset</button>
     </div>
   );
 }
