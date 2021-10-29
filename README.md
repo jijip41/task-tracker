@@ -1,3 +1,11 @@
+# For creating a new react app
+
+- clone this repository and run the command line below
+
+```
+cp -R [template-name] [app-name]
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
