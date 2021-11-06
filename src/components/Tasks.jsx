@@ -11,10 +11,37 @@ export default function Tasks() {
     { id: 3, name: 'Yoga', count: 0 },
   ]);
 
+  const handleIncrement = (task) => {
+    const newTasks = [...tasks];
+    const index = newTasks.indexOf(task);
+    newTasks[index].count++;
+    setTasks(newTasks);
+  };
+
+  const handleDecrement = (task) => {
+    const newTasks = [...tasks];
+    const index = newTasks.indexOf(task);
+    newTasks[index].count--;
+    setTasks(newTasks);
+  };
+
+  const handleDelete = (task) => {
+    const newTasks = [...tasks];
+    const index = newTasks.indexOf(task);
+    newTasks.splice(index, 1);
+    setTasks(newTasks);
+  };
+
   return (
     <ul>
       {tasks.map((task) => (
-        <TasksList key={task.id} task={task} />
+        <TasksList
+          key={task.id}
+          task={task}
+          onIncrement={handleIncrement}
+          onDecrement={handleDecrement}
+          onDelete={handleDelete}
+        />
       ))}
     </ul>
   );
