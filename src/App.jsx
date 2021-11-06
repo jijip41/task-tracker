@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Navbar from './Navbar';
-import TasksList from './TasksList';
+import Navbar from './components/Navbar';
+import TasksList from './components/TasksList';
 
 function App() {
   return (

@@ -1,5 +1,4 @@
 import React from 'react';
-import './nav.css';
 
 export default function Navbar() {
   const [total, setTotal] = React.useState(0);
