@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function TasksList(props) {
-  const { name, count } = props;
+  const { name, count } = props.task;
   return (
     <li className="task">
       <span className="task-name">{name}</span>
