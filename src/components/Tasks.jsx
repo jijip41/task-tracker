@@ -21,7 +21,8 @@ export default function Tasks() {
   const handleDecrement = (task) => {
     const newTasks = [...tasks];
     const index = newTasks.indexOf(task);
-    newTasks[index].count--;
+    const count = newTasks[index].count - 1;
+    newTasks[index].count = count < 0 ? 0 : count;
     setTasks(newTasks);
   };
 
@@ -30,6 +31,8 @@ export default function Tasks() {
     const index = newTasks.indexOf(task);
     newTasks.splice(index, 1);
     setTasks(newTasks);
+    // const newTasks = tasks.filter((i) => i.id != task.id);
+    // setTasks(newTasks)
   };
 
   return (
