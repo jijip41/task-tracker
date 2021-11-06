@@ -1,0 +1,8 @@
+:root {
+  --green: rgb(21, 139, 84);
+}
+
+.round {
+  border-radius: 50px;
+  background-color: var(--green);
+}
