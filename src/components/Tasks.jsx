@@ -6,15 +6,15 @@ import TasksList from './TasksList';
 export default function Tasks() {
   // State => Array
   const [tasks, setTasks] = React.useState([
-    { name: 'Coding', count: 0 },
-    { name: 'Reading', count: 0 },
-    { name: 'Yoga', count: 0 },
+    { id: 1, name: 'Coding', count: 0 },
+    { id: 2, name: 'Reading', count: 0 },
+    { id: 3, name: 'Yoga', count: 0 },
   ]);
 
   return (
     <ul>
       {tasks.map((task) => (
-        <TasksList task={task} />
+        <TasksList key={task.id} task={task} />
       ))}
     </ul>
   );
