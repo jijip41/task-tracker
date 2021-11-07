@@ -1,13 +1,17 @@
 import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
-import TasksList from './components/TasksList';
+import Tasks from './components/Tasks';
 
 function App() {
+  const [total, setTotal] = React.useState(
+    document.querySelectorAll('li').length
+  );
+
   return (
     <>
-      <Navbar />
-      <TasksList />
+      <Navbar total={total} />
+      <Tasks />
     </>
   );
 }

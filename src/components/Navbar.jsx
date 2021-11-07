@@ -1,10 +1,9 @@
 import React from 'react';
 
-export default function Navbar() {
-  const [total, setTotal] = React.useState(0);
+export default function Navbar(props) {
   return (
     <h1>
-      💕 Task Tracker <span className="round">{total}</span>
+      💕 Task Tracker <span className="round">{props.total}</span>
     </h1>
   );
 }
