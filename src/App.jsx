@@ -2,16 +2,16 @@ import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import Tasks from './components/Tasks';
+import Form from './components/Form';
+import Reset from './components/Reset';
 
 function App() {
-  const [total, setTotal] = React.useState(
-    document.querySelectorAll('li').length
-  );
-
   return (
     <>
-      <Navbar total={total} />
+      <Navbar />
+      <Form />
       <Tasks />
+      <Reset />
     </>
   );
 }
