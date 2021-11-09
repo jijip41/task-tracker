@@ -12,6 +12,8 @@ function App() {
     { id: 3, name: 'Yoga', count: 0 },
   ]);
 
+  const [tasksCount, setTasksCount] = React.useState(0);
+
   const handleIncrement = (task) => {
     const newTasks = [...tasks];
     const index = newTasks.indexOf(task);
@@ -35,17 +37,26 @@ function App() {
     // const newTasks = tasks.filter((i) => i.id != task.id);
     // setTasks(newTasks)
   };
+
+  const handleTasksCount = () => {
+    //
+  };
+
+  const handleReset = () => {
+    setTasks([]);
+  };
   return (
     <>
-      <Navbar />
+      <Navbar taskCount={tasksCount} />
       <Form />
       <Tasks
         tasks={tasks}
         handleIncrement={handleIncrement}
         handleDecrement={handleDecrement}
         handleDelete={handleDelete}
+        onSubmit={handleTasksCount}
       />
-      <Reset />
+      <Reset handleReset={handleReset} />
     </>
   );
 }
