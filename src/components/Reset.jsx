@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Reset = () => {
-  return <button>Reset</button>;
+const Reset = (props) => {
+  return <button onClick={props.handleReset}>Reset</button>;
 };
 
 export default Reset;
