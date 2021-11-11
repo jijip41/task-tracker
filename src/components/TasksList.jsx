@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function TasksList(props) {
-  const { name, count } = props.task;
+  const { taskName, count } = props.task;
   const handleIncrement = () => {
     props.onIncrement(props.task);
   };
@@ -15,7 +15,7 @@ export default function TasksList(props) {
   };
   return (
     <li className="task">
-      <span className="task-name">{name}</span>
+      <span className="task-name">{taskName}</span>
       <span className="task-count">{count}</span>
       <button className="task-plus task-btn" onClick={handleIncrement}>
         ➕

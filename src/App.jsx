@@ -7,9 +7,9 @@ import Reset from './components/Reset';
 
 function App() {
   const [tasks, setTasks] = React.useState([
-    { id: 1, name: 'Coding', count: 0 },
-    { id: 2, name: 'Reading', count: 0 },
-    { id: 3, name: 'Yoga', count: 0 },
+    // { id: 1, name: 'Coding', count: 0 },
+    // { id: 2, name: 'Reading', count: 0 },
+    // { id: 3, name: 'Yoga', count: 0 },
   ]);
 
   const [tasksCount, setTasksCount] = React.useState(0);
@@ -38,6 +38,12 @@ function App() {
     // setTasks(newTasks)
   };
 
+  const addTasks = (task) => {
+    console.log(task);
+    const addNewTask = [task, ...tasks];
+    setTasks(addNewTask);
+  };
+
   const handleTasksCount = () => {
     //
   };
@@ -48,13 +54,13 @@ function App() {
   return (
     <>
       <Navbar taskCount={tasksCount} />
-      <Form />
+      <Form addTasks={addTasks} />
       <Tasks
         tasks={tasks}
         handleIncrement={handleIncrement}
         handleDecrement={handleDecrement}
         handleDelete={handleDelete}
-        onSubmit={handleTasksCount}
+        // onSubmit={handleTasksCount}
       />
       <Reset handleReset={handleReset} />
     </>
