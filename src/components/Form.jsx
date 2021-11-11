@@ -24,6 +24,7 @@ const Form = (props) => {
           };
 
           updateTasks(content);
+          document.querySelector('input').value = '';
         }}
       >
         Add
