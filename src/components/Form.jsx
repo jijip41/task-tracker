@@ -24,7 +24,7 @@ const Form = (props) => {
             name: name,
           };
 
-          updateTasks(content);
+          if (name) updateTasks(content);
 
           document.querySelector('input').value = '';
         }}
