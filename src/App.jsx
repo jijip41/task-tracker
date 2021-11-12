@@ -12,22 +12,23 @@ function App() {
 
   const handleIncrement = (task) => {
     const newTasks = [...tasks];
-    const index = newTasks.indexOf(task);
-    newTasks[index].count++;
+    const p = task.count;
+    if (p === 0) setAllCount(allCount + 1);
+    newTasks[0].count++;
     setTasks(newTasks);
   };
 
   const handleDecrement = (task) => {
     const newTasks = [...tasks];
-    const index = newTasks.indexOf(task);
-    const count = newTasks[index].count - 1;
-    newTasks[index].count = count < 0 ? 0 : count;
+    const count = newTasks[0].count - 1;
+    newTasks[0].count = count < 0 ? 0 : count;
     setTasks(newTasks);
   };
 
   const handleDelete = (task) => {
     const newTasks = [...tasks];
     const index = newTasks.indexOf(task);
+
     newTasks.splice(index, 1);
     setTasks(newTasks);
     // const newTasks = tasks.filter((i) => i.id != task.id);
