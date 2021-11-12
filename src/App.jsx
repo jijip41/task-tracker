@@ -35,10 +35,8 @@ function App() {
   };
 
   const addTasks = (task) => {
-    console.log('before update tasks state:', task);
     const addNewTask = [task, ...tasks];
     setTasks(addNewTask);
-    console.log('updated tasks state:', tasks);
   };
 
   const handleReset = () => {
