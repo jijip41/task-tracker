@@ -12,19 +12,20 @@ function App() {
 
   const handleIncrement = (task) => {
     const newTasks = [...tasks];
-    const p = task.count;
-    if (p === 0) setAllCount(allCount + 1);
-    newTasks[0].count++;
+    const index = newTasks.indexOf(task);
+    newTasks[index].count++;
+    const count = newTasks[index].count;
+    count === 1 ? setAllCount(allCount + 1) : setAllCount(allCount);
     setTasks(newTasks);
   };
 
   const handleDecrement = (task) => {
     const newTasks = [...tasks];
-    const count = newTasks[0].count - 1;
-    const p = task.count;
-    newTasks[0].count = count < 0 ? 0 : count;
+    const index = newTasks.indexOf(task);
+    const count = newTasks[index].count;
+    newTasks[index].count = count < 1 ? count : count - 1;
     setTasks(newTasks);
-    if (p === 1) setAllCount(allCount - 1);
+    count === 1 ? setAllCount(count - 1) : setAllCount(allCount);
   };
 
   const handleDelete = (task) => {
