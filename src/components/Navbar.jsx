@@ -4,7 +4,7 @@ import React from 'react';
 export default function Navbar(props) {
   return (
     <h1>
-      💕 Task Tracker <span className="round">{props.taskCount}</span>
+      💕 Task Tracker <span className="round">{props.allCount}</span>
     </h1>
   );
 }

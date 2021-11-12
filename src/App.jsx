@@ -7,7 +7,7 @@ import Reset from './components/Reset';
 
 function App() {
   const [tasks, setTasks] = React.useState([]);
-
+  const [allCount, setAllCount] = React.useState(0);
   // const [tasksCount, setTasksCount] = React.useState(0);
 
   const handleIncrement = (task) => {
@@ -44,7 +44,7 @@ function App() {
   };
   return (
     <>
-      <Navbar />
+      <Navbar allCount={allCount} />
       <Form addTasks={addTasks} />
       <Tasks
         tasks={tasks}
