@@ -21,14 +21,18 @@ function App() {
   const handleDecrement = (task) => {
     const newTasks = [...tasks];
     const count = newTasks[0].count - 1;
+    const p = task.count;
     newTasks[0].count = count < 0 ? 0 : count;
     setTasks(newTasks);
+    if (p === 1) setAllCount(allCount - 1);
   };
 
   const handleDelete = (task) => {
     const newTasks = [...tasks];
     const index = newTasks.indexOf(task);
+    const p = task.count;
 
+    p === 0 ? setAllCount(allCount) : setAllCount(allCount - 1);
     newTasks.splice(index, 1);
     setTasks(newTasks);
     // const newTasks = tasks.filter((i) => i.id != task.id);
