@@ -12,7 +12,7 @@ export default function Tasks(props) {
         .map((task) => (
           <TasksList
             key={task.id}
-            task={task.taskName}
+            task={task}
             onIncrement={props.handleIncrement}
             onDecrement={props.handleDecrement}
             onDelete={props.handleDelete}

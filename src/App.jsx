@@ -6,13 +6,9 @@ import Form from './components/Form';
 import Reset from './components/Reset';
 
 function App() {
-  const [tasks, setTasks] = React.useState([
-    // { id: 1, name: 'Coding', count: 0 },
-    // { id: 2, name: 'Reading', count: 0 },
-    // { id: 3, name: 'Yoga', count: 0 },
-  ]);
+  const [tasks, setTasks] = React.useState([]);
 
-  const [tasksCount, setTasksCount] = React.useState(0);
+  // const [tasksCount, setTasksCount] = React.useState(0);
 
   const handleIncrement = (task) => {
     const newTasks = [...tasks];
@@ -39,13 +35,10 @@ function App() {
   };
 
   const addTasks = (task) => {
-    console.log(task);
+    console.log('before update tasks state:', task);
     const addNewTask = [task, ...tasks];
     setTasks(addNewTask);
-  };
-
-  const handleTasksCount = () => {
-    //
+    console.log('updated tasks state:', tasks);
   };
 
   const handleReset = () => {
@@ -53,7 +46,7 @@ function App() {
   };
   return (
     <>
-      <Navbar taskCount={tasksCount} />
+      <Navbar />
       <Form addTasks={addTasks} />
       <Tasks
         tasks={tasks}
