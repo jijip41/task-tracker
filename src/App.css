@@ -59,24 +59,21 @@ input:focus {
   outline: none;
   border-color: var(--light-green);
 }
+ul {
+  padding: 0;
+  margin: auto;
+}
 
 li {
   list-style: none;
+  text-align: center;
 }
-
-/* 
-input .task {
-  display: inline-block;
-  padding: 0.3em;
-  min-width: 50vw;
-  list-style: none;
-  border-bottom: solid 1px rgb(211, 203, 203);
-} */
 
 .task-name {
   display: inline-block;
   min-width: 20vw;
   height: 2rem;
+  text-align: left;
   vertical-align: center;
   color: var(--dark-green);
 }
