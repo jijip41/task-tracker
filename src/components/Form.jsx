@@ -9,28 +9,31 @@ const Form = (props) => {
   };
   return (
     <form>
-      <input
-        onChange={(e) => {
-          setName(e.target.value);
-        }}
-      ></input>
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          setId(id + 1);
-          const content = {
-            count: 0,
-            id: id,
-            name: name,
-          };
+      <div className="form">
+        <input
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
+        ></input>
+        <button
+          className="square-btn"
+          onClick={(e) => {
+            e.preventDefault();
+            setId(id + 1);
+            const content = {
+              count: 0,
+              id: id,
+              name: name,
+            };
 
-          if (name) updateTasks(content);
+            if (name) updateTasks(content);
 
-          document.querySelector('input').value = '';
-        }}
-      >
-        Add
-      </button>
+            document.querySelector('input').value = '';
+          }}
+        >
+          Add
+        </button>
+      </div>
     </form>
   );
 };

@@ -3,8 +3,8 @@ import React from 'react';
 
 export default function Navbar(props) {
   return (
-    <h1>
-      💕 Task Tracker <span className="round">{props.allCount}</span>
-    </h1>
+    <header>
+      <span>Task Tracker </span> <span className="round">{props.allCount}</span>
+    </header>
   );
 }

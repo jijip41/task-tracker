@@ -1,7 +1,13 @@
 import React from 'react';
 
 const Reset = (props) => {
-  return <button onClick={props.handleReset}>Reset</button>;
+  return (
+    <div className="reset">
+      <button className="square-btn" onClick={props.handleReset}>
+        Reset
+      </button>
+    </div>
+  );
 };
 
 export default Reset;
