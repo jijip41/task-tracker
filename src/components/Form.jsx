@@ -29,6 +29,7 @@ const Form = (props) => {
             if (name) updateTasks(content);
 
             document.querySelector('input').value = '';
+            setName(null);
           }}
         >
           Add
