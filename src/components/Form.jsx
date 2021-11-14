@@ -3,6 +3,7 @@ import React from 'react';
 const Form = (props) => {
   const [name, setName] = React.useState('');
   const [id, setId] = React.useState(1);
+  const inputRef = React.createRef();
 
   const updateTasks = (task) => {
     props.addTasks(task);
@@ -11,6 +12,7 @@ const Form = (props) => {
     <form>
       <div className="form">
         <input
+          ref={inputRef}
           onChange={(e) => {
             setName(e.target.value);
           }}
@@ -25,12 +27,12 @@ const Form = (props) => {
               id: id,
               name: name,
             };
-            const input = document.querySelector('input');
+
             if (name) updateTasks(content);
 
-            input.value = '';
+            inputRef.current.value = '';
             setName(null);
-            input.focus();
+            inputRef.current.focus();
           }}
         >
           Add
