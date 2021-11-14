@@ -25,11 +25,12 @@ const Form = (props) => {
               id: id,
               name: name,
             };
-
+            const input = document.querySelector('input');
             if (name) updateTasks(content);
 
-            document.querySelector('input').value = '';
+            input.value = '';
             setName(null);
+            input.focus();
           }}
         >
           Add
