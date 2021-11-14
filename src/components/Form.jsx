@@ -28,7 +28,7 @@ const Form = (props) => {
               name: name,
             };
 
-            if (name) updateTasks(content);
+            name && updateTasks(content);
 
             inputRef.current.value = '';
             setName(null);
