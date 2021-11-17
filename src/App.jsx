@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Tasks from './components/Tasks';
 import Form from './components/Form';
 import Reset from './components/Reset';
+import Delete from './components/Delete';
 
 function App() {
   const [tasks, setTasks] = React.useState([]);
@@ -39,6 +40,10 @@ function App() {
     setTasks(addNewTask);
   };
 
+  const handleDeleteAll = () => {
+    setTasks([]);
+  };
+
   const handleReset = () => {
     setTasks([]);
   };
@@ -53,7 +58,10 @@ function App() {
         handleDelete={handleDelete}
         // onSubmit={handleTasksCount}
       />
-      <Reset handleReset={handleReset} />
+      <div className="control">
+        <Reset handleReset={handleReset} />
+        <Delete handleDeleteAll={handleDeleteAll} />
+      </div>
     </>
   );
 }
