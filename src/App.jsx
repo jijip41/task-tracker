@@ -45,10 +45,12 @@ function App() {
   };
 
   const handleReset = () => {
-    const newTasks = [...tasks];
-    newTasks.map((task) => (task.count = 0));
+    const newTasks = tasks.map((task) => {
+      return { ...task, count: 0 };
+    });
     setTasks(newTasks);
   };
+
   return (
     <>
       <Navbar allCount={tasks.filter((i) => i.count > 0).length} />
