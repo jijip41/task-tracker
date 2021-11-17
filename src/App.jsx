@@ -45,7 +45,9 @@ function App() {
   };
 
   const handleReset = () => {
-    setTasks([]);
+    const newTasks = [...tasks];
+    newTasks.map((task) => (task.count = 0));
+    setTasks(newTasks);
   };
   return (
     <>
