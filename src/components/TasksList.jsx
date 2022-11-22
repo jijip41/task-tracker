@@ -17,14 +17,14 @@ export default function TasksList(props) {
     <li className="task">
       <span className="task-name">{props.task.name}</span>
       <button className="task-plus task-btn" onClick={handleIncrement}>
-        <i class="fas fa-plus"></i>
+        <i className="fas fa-plus"></i>
       </button>
       <p className="task-count">{props.task.count}</p>
       <button className="task-minus task-btn" onClick={handleDecrement}>
-        <i class="fas fa-minus"></i>
+        <i className="fas fa-minus"></i>
       </button>
       <button className="task-bin task-btn" onClick={handleDelete}>
-        <i class="fas fa-trash-alt"></i>
+        <i className="fas fa-trash-alt"></i>
       </button>
     </li>
   );
