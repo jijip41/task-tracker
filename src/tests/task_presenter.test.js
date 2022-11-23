@@ -66,6 +66,21 @@ describe('TaskPresenter', () => {
     checkUpdateIsCalled();
   });
 
+  it('deletes all tasks', () => {
+    presenter.deleteAll(update);
+
+    expect(presenter.getTasks().length).toBe(0);
+    checkUpdateIsCalled();
+  });
+
+  it('resets all tasks count', () => {
+    presenter.reset(update);
+
+    expect(presenter.getTasks()[0].count).toBe(0);
+    expect(presenter.getTasks()[1].count).toBe(0);
+    checkUpdateIsCalled();
+  });
+
   function checkUpdateIsCalled() {
     expect(update).toHaveBeenCalledTimes(1);
     expect(update).toHaveBeenCalledWith(presenter.getTasks());
