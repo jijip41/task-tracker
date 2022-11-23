@@ -35,8 +35,8 @@ export default class TaskPresenter {
     update(this.tasks);
   }
 
-  add(task, update) {
-    this.tasks = [...this.tasks, task];
+  add(name, update) {
+    this.tasks = [...this.tasks, { name, id: this.tasks.length + 1, count: 0 }];
     update(this.tasks);
   }
 

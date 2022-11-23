@@ -21,8 +21,8 @@ function App({ presenter }) {
     presenter.delete(task, setTasks);
   };
 
-  const addTasks = (task) => {
-    presenter.add(task, setTasks);
+  const addTask = (name) => {
+    presenter.add(name, setTasks);
   };
 
   const handleDeleteAll = () => {
@@ -36,7 +36,7 @@ function App({ presenter }) {
   return (
     <>
       <Navbar allCount={tasks.filter((i) => i.count > 0).length} />
-      <Form addTasks={addTasks} />
+      <Form addTask={addTask} />
       <Tasks
         tasks={tasks}
         handleIncrement={handleIncrement}
