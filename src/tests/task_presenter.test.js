@@ -74,20 +74,30 @@ describe('TaskPresenter', () => {
     checkUpdateIsCalled();
   });
 
-  it('resets all tasks count', () => {
-    presenter.reset(update);
-
-    expect(presenter.getTasks()[0].count).toBe(0);
-    expect(presenter.getTasks()[1].count).toBe(0);
-    checkUpdateIsCalled();
-  });
-
   it('throws an error if number of tasks exceeds limit', () => {
     presenter.add('Cooking', update);
 
     expect(() => {
       presenter.add('Walking', update);
     }).toThrow(`Tasks can't exceed ${maxTasks}`);
+  });
+
+  describe('reset', () => {
+    it('resets all tasks count', () => {
+      presenter.reset(update);
+
+      expect(presenter.getTasks()[0].count).toBe(0);
+      expect(presenter.getTasks()[1].count).toBe(0);
+      checkUpdateIsCalled();
+    });
+
+    it('does not create new object when count is not 0', () => {
+      const tasks = presenter.getTasks();
+      presenter.reset(update);
+      const updatedTasks = presenter.getTasks();
+
+      expect(tasks[1]).toBe(updatedTasks[1]);
+    });
   });
 
   function checkUpdateIsCalled() {

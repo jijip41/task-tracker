@@ -51,7 +51,10 @@ export default class TaskPresenter {
 
   reset(update) {
     this.tasks = this.tasks.map((item) => {
-      return { ...item, count: 0 };
+      if (item.count !== 0) {
+        return { ...item, count: 0 };
+      }
+      return item;
     });
     update(this.tasks);
   }
