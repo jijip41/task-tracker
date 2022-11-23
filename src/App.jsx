@@ -6,49 +6,31 @@ import Form from './components/Form';
 import Reset from './components/Reset';
 import Delete from './components/Delete';
 
-function App() {
-  const [tasks, setTasks] = React.useState([]);
+function App({ presenter }) {
+  const [tasks, setTasks] = React.useState(presenter.getTasks());
 
   const handleIncrement = (task) => {
-    const newTasks = [...tasks];
-    const index = newTasks.indexOf(task);
-    newTasks[index].count++;
-
-    setTasks(newTasks);
+    presenter.increment(task, setTasks);
   };
 
   const handleDecrement = (task) => {
-    const newTasks = [...tasks];
-    const index = newTasks.indexOf(task);
-    const count = newTasks[index].count;
-    newTasks[index].count = count < 1 ? count : count - 1;
-    setTasks(newTasks);
+    presenter.decrement(task, setTasks);
   };
 
   const handleDelete = (task) => {
-    const newTasks = [...tasks];
-    const index = newTasks.indexOf(task);
-
-    newTasks.splice(index, 1);
-    setTasks(newTasks);
-    // const newTasks = tasks.filter((i) => i.id != task.id);
-    // setTasks(newTasks)
+    presenter.delete(task, setTasks);
   };
 
   const addTasks = (task) => {
-    const addNewTask = [task, ...tasks];
-    setTasks(addNewTask);
+    presenter.add(task, setTasks);
   };
 
   const handleDeleteAll = () => {
-    setTasks([]);
+    presenter.deleteAll(setTasks);
   };
 
   const handleReset = () => {
-    const newTasks = tasks.map((task) => {
-      return { ...task, count: 0 };
-    });
-    setTasks(newTasks);
+    presenter.reset(setTasks);
   };
 
   return (
@@ -60,7 +42,6 @@ function App() {
         handleIncrement={handleIncrement}
         handleDecrement={handleDecrement}
         handleDelete={handleDelete}
-        // onSubmit={handleTasksCount}
       />
       <div className="control">
         <Reset handleReset={handleReset} />

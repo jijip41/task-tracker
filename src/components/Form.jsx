@@ -2,7 +2,7 @@ import React from 'react';
 
 const Form = (props) => {
   const [name, setName] = React.useState('');
-  const [id, setId] = React.useState(1);
+  const [id, setId] = React.useState(2);
   const inputRef = React.createRef();
 
   const updateTasks = (task) => {

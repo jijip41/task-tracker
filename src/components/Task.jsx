@@ -1,25 +1,25 @@
 import React from 'react';
 
-export default function TasksList(props) {
+export default function Task({ task, onIncrement, onDecrement, onDelete }) {
   const handleIncrement = () => {
-    props.onIncrement(props.task);
+    onIncrement(task);
   };
 
   const handleDecrement = () => {
-    props.onDecrement(props.task);
+    onDecrement(task);
   };
 
-  const handleDelete = (task) => {
-    props.onDelete(props.task);
+  const handleDelete = () => {
+    onDelete(task);
   };
 
   return (
-    <li className="task">
-      <span className="task-name">{props.task.name}</span>
+    <li className="task" key={task.id}>
+      <span className="task-name">{task.name}</span>
       <button className="task-plus task-btn" onClick={handleIncrement}>
         <i className="fas fa-plus"></i>
       </button>
-      <p className="task-count">{props.task.count}</p>
+      <p className="task-count">{task.count}</p>
       <button className="task-minus task-btn" onClick={handleDecrement}>
         <i className="fas fa-minus"></i>
       </button>

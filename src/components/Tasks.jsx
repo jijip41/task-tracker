@@ -1,21 +1,22 @@
 import React from 'react';
-import TasksList from './TasksList';
+import Task from './Task';
 
-// Container Component
-
-export default function Tasks(props) {
-  // State => Array
-
+export default function Tasks({
+  tasks,
+  handleIncrement,
+  handleDecrement,
+  handleDelete,
+}) {
   return (
     <ul>
-      {props.tasks
+      {tasks
         .map((task) => (
-          <TasksList
+          <Task
             key={task.id}
             task={task}
-            onIncrement={props.handleIncrement}
-            onDecrement={props.handleDecrement}
-            onDelete={props.handleDelete}
+            onIncrement={handleIncrement}
+            onDecrement={handleDecrement}
+            onDelete={handleDelete}
           />
         ))
         .reverse()}
