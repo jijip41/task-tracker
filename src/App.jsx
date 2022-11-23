@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import Tasks from './components/Tasks';
-import Form from './components/Form';
+import Form from './components/form/Form';
 import Reset from './components/Reset';
 import Delete from './components/Delete';
 
