@@ -22,9 +22,11 @@ const taskPresenter = new TaskPresenter([
   },
 ]);
 
+const maxTasks = 10;
+
 ReactDOM.render(
   <React.StrictMode>
-    <App presenter={taskPresenter} />
+    <App presenter={(taskPresenter, maxTasks)} />
   </React.StrictMode>,
   document.getElementById('root')
 );

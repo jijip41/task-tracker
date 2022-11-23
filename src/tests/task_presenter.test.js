@@ -13,12 +13,13 @@ describe('TaskPresenter', () => {
       count: 0,
     },
   ];
+  const maxTasks = 3;
 
   let presenter;
   let update;
 
   beforeEach(() => {
-    presenter = new TaskPresenter(tasks);
+    presenter = new TaskPresenter(tasks, maxTasks);
     update = jest.fn();
   });
 
@@ -79,6 +80,14 @@ describe('TaskPresenter', () => {
     expect(presenter.getTasks()[0].count).toBe(0);
     expect(presenter.getTasks()[1].count).toBe(0);
     checkUpdateIsCalled();
+  });
+
+  it('throws an error if number of tasks exceeds limit', () => {
+    presenter.add('Cooking', update);
+
+    expect(() => {
+      presenter.add('Walking', update);
+    }).toThrow(`Tasks can't exceed ${maxTasks}`);
   });
 
   function checkUpdateIsCalled() {

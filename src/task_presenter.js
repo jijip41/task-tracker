@@ -1,6 +1,7 @@
 export default class TaskPresenter {
-  constructor(tasks) {
+  constructor(tasks, maxTasks) {
     this.tasks = tasks;
+    this.maxTasks = maxTasks;
   }
   getTasks() {
     return this.tasks;
@@ -36,6 +37,9 @@ export default class TaskPresenter {
   }
 
   add(name, update) {
+    if (this.tasks.length === this.maxTasks) {
+      throw new Error(`Tasks can't exceed ${this.maxTasks}`);
+    }
     this.tasks = [...this.tasks, { name, id: this.tasks.length + 1, count: 0 }];
     update(this.tasks);
   }
